@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notion Claude AI 어시스턴트 사이드패널</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="sidebar">
+      <div id="original-text">
+        <h3>원문</h3>
+        <p id="original-content"></p>
+      </div>
+      <div id="processed-text">
+        <h3>처리된 텍스트</h3>
+        <p id="processed-content"></p>
+      </div>
+      <div id="actions">
+        <button id="insert-btn">삽입</button>
+        <button id="replace-btn">대체</button>
+      </div>
+      <div id="status">
+        <h3>처리 현황</h3>
+        <p id="status-message">대기 중...</p>
+      </div>
+    </div>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

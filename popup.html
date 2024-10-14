@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notion Claude AI 어시스턴트</title>
+    <style>
+      body {
+        width: 300px;
+        padding: 10px;
+        font-family: "Malgun Gothic", sans-serif;
+      }
+      input,
+      select,
+      button,
+      textarea {
+        margin-top: 10px;
+        width: 100%;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      #status {
+        margin-top: 10px;
+        padding: 5px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Notion Claude AI 어시스턴트</h2>
+    <input type="password" id="apiKey" placeholder="Claude AI API 키 입력" />
+    <textarea
+      id="prompt"
+      rows="3"
+      placeholder="텍스트 처리 방법을 입력하세요. 예: '이 텍스트를 요약해주세요.'"
+    ></textarea>
+    <label> <input type="checkbox" id="autoProcess" /> 자동 처리 활성화 </label>
+    <label>
+      기본 동작:
+      <select id="defaultAction">
+        <option value="replace">대체</option>
+        <option value="append">추가</option>
+      </select>
+    </label>
+    <button id="save">설정 저장</button>
+    <div id="status">상태: 대기 중</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Claude AI 텍스트 어시스턴트",
+  "version": "1.1",
+  "description": "웹 기반 에디터에서 텍스트를 선택하고 Claude AI로 처리합니다.",
+  "permissions": ["activeTab", "storage", "contextMenus", "sidePanel"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
