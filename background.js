@@ -1,7 +1,6 @@
 // TODO: REMOVE THIS BEFORE PRODUCTION DEPLOYMENT
 // Hardcoded API key for development purposes only
-const HARDCODED_API_KEY =
-  "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";
+const HARDCODED_API_KEY = "api-key-here";
 
 let CLAUDE_API_KEY = HARDCODED_API_KEY;
 const DEFAULT_PROMPT = "이 텍스트를 요약해 주세요";
