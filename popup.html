@@ -10,15 +10,10 @@
         font-family: "Malgun Gothic", sans-serif;
       }
       input,
-      select,
       button,
       textarea {
         margin-top: 10px;
         width: 100%;
-      }
-      label {
-        display: block;
-        margin-top: 10px;
       }
       #status {
         margin-top: 10px;
@@ -37,14 +32,6 @@
       rows="3"
       placeholder="텍스트 처리 방법을 입력하세요. 예: '이 텍스트를 요약해주세요.'"
     ></textarea>
-    <label> <input type="checkbox" id="autoProcess" /> 자동 처리 활성화 </label>
-    <label>
-      기본 동작:
-      <select id="defaultAction">
-        <option value="replace">대체</option>
-        <option value="append">추가</option>
-      </select>
-    </label>
     <button id="save">설정 저장</button>
     <div id="status">상태: 대기 중</div>
 

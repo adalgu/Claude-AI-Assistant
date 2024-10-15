@@ -35,7 +35,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 // 설정 업데이트 메시지 리스너
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "updateSettings") {
-    // 개발 중에는 API 키 업데이트를 무시
+    CLAUDE_API_KEY = request.apiKey;
     PROMPT = request.prompt || DEFAULT_PROMPT;
     chrome.storage.sync.set({ prompt: PROMPT });
   } else if (request.action === "processText") {

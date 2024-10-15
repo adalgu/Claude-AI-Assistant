@@ -2,41 +2,27 @@ const DEFAULT_PROMPT = "이 텍스트를 요약해 주세요";
 
 document.addEventListener("DOMContentLoaded", function () {
   // 저장된 설정 불러오기
-  chrome.storage.sync.get(
-    ["apiKey", "prompt", "autoProcess", "defaultAction"],
-    function (items) {
-      document.getElementById("apiKey").value = items.apiKey || "";
-      document.getElementById("prompt").value = items.prompt || DEFAULT_PROMPT;
-      document.getElementById("autoProcess").checked =
-        items.autoProcess || false;
-      document.getElementById("defaultAction").value =
-        items.defaultAction || "replace";
-    }
-  );
+  chrome.storage.sync.get(["apiKey", "prompt"], function (items) {
+    document.getElementById("apiKey").value = items.apiKey || "";
+    document.getElementById("prompt").value = items.prompt || DEFAULT_PROMPT;
+  });
 
   // 설정 저장 버튼 클릭 이벤트
   document.getElementById("save").addEventListener("click", function () {
     const apiKey = document.getElementById("apiKey").value;
     const prompt = document.getElementById("prompt").value || DEFAULT_PROMPT;
-    const autoProcess = document.getElementById("autoProcess").checked;
-    const defaultAction = document.getElementById("defaultAction").value;
 
-    chrome.storage.sync.set(
-      { apiKey, prompt, autoProcess, defaultAction },
-      function () {
-        console.log("설정이 저장되었습니다.");
-        // 설정이 변경되었음을 백그라운드 스크립트에 알림
-        chrome.runtime.sendMessage({
-          action: "updateSettings",
-          apiKey,
-          prompt,
-          autoProcess,
-          defaultAction,
-        });
-        // 저장 완료 메시지 표시
-        alert("설정이 저장되었습니다.");
-      }
-    );
+    chrome.storage.sync.set({ apiKey, prompt }, function () {
+      console.log("설정이 저장되었습니다.");
+      // 설정이 변경되었음을 백그라운드 스크립트에 알림
+      chrome.runtime.sendMessage({
+        action: "updateSettings",
+        apiKey,
+        prompt,
+      });
+      // 저장 완료 메시지 표시
+      alert("설정이 저장되었습니다.");
+    });
   });
 
   // 상태 업데이트 함수
